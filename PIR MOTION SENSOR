@@ -1,0 +1,19 @@
+int buttonState = 0;
+int LED = 12;
+void setup()
+{
+pinMode(3,INPUT);
+pinMode(LED,OUTPUT); 
+Serial.begin(9600);
+}
+void loop(){
+buttonState = digitalRead(3);
+if(buttonState==HIGH){
+digitalWrite(LED,HIGH);
+Serial.println("Object is detected");
+}else{
+digitalWrite(LED,LOW);
+Serial.println("Object is not detected");
+}
+delay(10);
+}
