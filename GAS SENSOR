@@ -1,0 +1,25 @@
+int gaspin=A2;
+int LED_GREEN=7;
+int LED_YELLOW=6;
+int LED_ORANGE=5;
+int LED_RED=4;
+
+void setup()
+{
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_YELLOW,OUTPUT);
+  pinMode(LED_ORANGE,OUTPUT);
+  pinMode(LED_RED,OUTPUT);
+}
+
+void loop()
+{
+  int value=analogRead(gaspin);
+  value=map(value,350,750,0,100);
+  
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_YELLOW,value>=30?HIGH:LOW);
+  digitalWrite(LED_ORANGE,value>=50?HIGH:LOW);
+  digitalWrite(LED_RED,value>=80?HIGH:LOW);
+  delay(250);
+}
