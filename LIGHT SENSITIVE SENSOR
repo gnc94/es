@@ -1,0 +1,24 @@
+// C++ code
+//
+int LDR = A2;
+int BULB = 6;
+int LDRValue=0;
+void setup()
+{
+  pinMode(BULB, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  LDRValue=analogRead(LDR);
+  Serial.print("Analog Value: ");
+  Serial.println(LDRValue);
+  if (LDRValue > 400){
+    digitalWrite (BULB,LOW);
+  }
+  else{
+    digitalWrite(BULB,HIGH);
+  }
+  delay(1000);
+}
